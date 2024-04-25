@@ -1,0 +1,18 @@
+diff --git a/lib/programmemory.cpp b/lib/programmemory.cpp
+index 61e63b24d..f0422886a 100644
+--- a/lib/programmemory.cpp
++++ b/lib/programmemory.cpp
+@@ -1759,8 +1759,13 @@ ValueFlow::Value evaluateLibraryFunction(const std::unordered_map<nonneg int, Va
+                                          const Settings* settings,
+                                          bool cpp)
+ {
++#ifdef __MVS__
++    static std::unordered_map<std::string,
++                                           std::function<ValueFlow::Value(const std::unordered_map<nonneg int, ValueFlow::Value>& arg)>>
++#else
+     thread_local static std::unordered_map<std::string,
+                                            std::function<ValueFlow::Value(const std::unordered_map<nonneg int, ValueFlow::Value>& arg)>>
++#endif
+     functions = {};
+     if (functions.count(returnValue) == 0) {
+ 

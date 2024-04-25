@@ -1,0 +1,13 @@
+diff --git a/cmake/findDependencies.cmake b/cmake/findDependencies.cmake
+index 05122062b..5d1186a8d 100644
+--- a/cmake/findDependencies.cmake
++++ b/cmake/findDependencies.cmake
+@@ -79,7 +79,7 @@ if(NOT USE_BUNDLED_TINYXML2)
+     endif()
+ endif()
+ 
+-find_package(Threads REQUIRED)
++#find_package(Threads REQUIRED)
+ 
+ if(USE_BOOST)
+     # we are using the header-only "container" component
