@@ -20,7 +20,7 @@ export ZOPEN_MAKE_MINIMAL=Y
 export ZOPEN_INSTALL="cmake"
 export ZOPEN_INSTALL_OPTS="--install ../build"
 
-export ZOPEN_CHECK="skip"
+export ZOPEN_CHECK="skip" # linker error, needs investigation
 
 zopen_check_results()
 {
