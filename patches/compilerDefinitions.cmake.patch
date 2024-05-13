@@ -1,0 +1,9 @@
+diff --git a/cmake/compilerDefinitions.cmake b/cmake/compilerDefinitions.cmake
+index 9b96160ed..d0264e85a 100644
+--- a/cmake/compilerDefinitions.cmake
++++ b/cmake/compilerDefinitions.cmake
+@@ -62,4 +62,3 @@ if(NO_WINDOWS_SEH)
+ endif()
+ 
+ file(TO_CMAKE_PATH ${FILESDIR} _filesdir)
+-add_definitions(-DFILESDIR="${_filesdir}")
