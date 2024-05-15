@@ -1,0 +1,24 @@
+diff --git a/lib/path.cpp b/lib/path.cpp
+index f7d698034..559ff503a 100644
+--- a/lib/path.cpp
++++ b/lib/path.cpp
+@@ -31,6 +31,10 @@
+ 
+ #include <simplecpp.h>
+ 
++#ifdef __MVS__
++#include "zos.h"
++#endif
++
+ #ifndef _WIN32
+ #include <sys/types.h>
+ #include <unistd.h>
+@@ -149,6 +153,8 @@ std::string Path::getCurrentExecutablePath(const char* fallback)
+ #elif defined(__APPLE__)
+     uint32_t size = sizeof(buf);
+     success = (_NSGetExecutablePath(buf, &size) == 0);
++#elif defined(__MVS__)
++    snprintf(buf, 4096, "%s/%s", __getprogramdir(), getprogname());
+ #else
+     const char* procPath =
+ #ifdef __SVR4 // Solaris
