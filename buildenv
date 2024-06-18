@@ -1,11 +1,10 @@
 # Update bump details accordingly. Use bump check to confirm.
 # bump: cppcheck-version /CPPCHECK_VERSION="(.*)"/ https://github.com/danmar/cppcheck.git|semver:*
-# CPPCHECK_VERSION="V.R.M" # Specify a stable release
-# export ZOPEN_STABLE_TAG="v${CPPCHECK_VERSION}"
+CPPCHECK_VERSION="2.14.2" # Specify a stable release
+export ZOPEN_STABLE_TAG="${CPPCHECK_VERSION}"
 export ZOPEN_STABLE_URL="https://github.com/danmar/cppcheck.git"
 export ZOPEN_STABLE_DEPS="zoslib libpcre2 coreutils make cmake"
 export ZOPEN_BUILD_LINE="STABLE"
-export ZOPEN_STABLE_TAG="2.14.0"
 export ZOPEN_CATEGORIES="security"
 
 export ZOPEN_COMP="CLANG"
