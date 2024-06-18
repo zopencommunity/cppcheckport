@@ -1,5 +1,5 @@
 diff --git a/lib/path.cpp b/lib/path.cpp
-index f7d698034..559ff503a 100644
+index f7d698034..16f1ed28a 100644
 --- a/lib/path.cpp
 +++ b/lib/path.cpp
 @@ -31,6 +31,10 @@
@@ -18,7 +18,16 @@ index f7d698034..559ff503a 100644
      uint32_t size = sizeof(buf);
      success = (_NSGetExecutablePath(buf, &size) == 0);
 +#elif defined(__MVS__)
-+    snprintf(buf, 4096, "%s/%s", __getprogramdir(), getprogname());
++    success = snprintf(buf, 4096, "%s/%s", __getprogramdir(), getprogname());
  #else
      const char* procPath =
  #ifdef __SVR4 // Solaris
+@@ -288,7 +294,7 @@ std::string Path::getAbsoluteFilePath(const std::string& filePath)
+     char absolute[_MAX_PATH];
+     if (_fullpath(absolute, filePath.c_str(), _MAX_PATH))
+         absolute_path = absolute;
+-#elif defined(__linux__) || defined(__sun) || defined(__hpux) || defined(__GNUC__) || defined(__CPPCHECK__)
++#elif defined(__linux__) || defined(__sun) || defined(__hpux) || defined(__GNUC__) || defined(__CPPCHECK__) || defined(__MVS__)
+     char * absolute = realpath(filePath.c_str(), nullptr);
+     if (absolute)
+         absolute_path = absolute;

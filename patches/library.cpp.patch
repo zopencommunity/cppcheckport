@@ -1,0 +1,12 @@
+diff --git a/lib/library.cpp b/lib/library.cpp
+index e140f02ec..54b7abf34 100644
+--- a/lib/library.cpp
++++ b/lib/library.cpp
+@@ -108,6 +108,7 @@ Library::Error Library::load(const char exename[], const char path[])
+             const std::string exepath(Path::fromNativeSeparators(Path::getPathFromFilename(Path::getCurrentExecutablePath(exename))));
+             cfgfolders.push_back(exepath + "cfg");
+             cfgfolders.push_back(exepath + "../cfg");
++            cfgfolders.push_back(exepath + "../share/Cppcheck/cfg");
+             cfgfolders.push_back(exepath);
+         }
+ 
